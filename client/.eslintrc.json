@@ -1,0 +1,67 @@
+{
+  "extends": ["airbnb", "prettier", "react-app"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "padded-blocks": ["error", "never"],
+    "react/jsx-wrap-multilines": [
+      "error",
+      {
+        "declaration": false,
+        "assignment": false
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "html": "enforce",
+        "custom": "enforce",
+        "exceptions": ["svg"]
+      }
+    ],
+    "react/jsx-sort-props": [
+      2,
+      {
+        "ignoreCase": true,
+        "reservedFirst": false
+      }
+    ],
+    "react/sort-prop-types": [
+      2,
+      {
+        "ignoreCase": true,
+        "requiredFirst": true,
+        "sortShapeProp": true
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always"
+      }
+    ],
+    "react/jsx-curly-brace-presence": [
+      "error",
+      {
+        "props": "never",
+        "children": "ignore"
+      }
+    ]
+  },
+  "globals": {
+    "fetch": "readonly"
+  },
+  "env": {
+    "browser": true,
+    "es6": true
+  }
+}
