@@ -1,24 +1,29 @@
 import React from 'react';
-import { makeStyles, Container, Typography, Card, CardContent } from '@material-ui/core';
+import { connect } from 'react-redux';
+import { makeStyles, Container, Typography, Card, CardContent, Paper } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {}
 }));
 
-const Cart = ({}) => {
+const Cart = ({ cartContents }) => {
   const classes = useStyles();
   return (
     <Container maxWidth="md">
-      <Typography variant="h3">Cart</Typography>
-      {['item1', 'item2', 'item3'].map(item => {
+      <Typography variant="h4">Cart</Typography>
+      {Object.keys(cartContents).map(itemKey => {
         return (
-          <Card key={item} title={item}>
-            <CardContent>{item}</CardContent>
-          </Card>
+          <Paper key={itemKey}>
+            <Typography>{cartContents[itemKey].make}</Typography>
+          </Paper>
         );
       })}
     </Container>
   );
 };
 
-export default Cart;
+const mapStateToProps = state => ({
+  cartContents: state.cartContents
+});
+
+export default connect(mapStateToProps, null)(Cart);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MuiThemeProvider, makeStyles, CssBaseline } from '@material-ui/core';
+import { MuiThemeProvider, makeStyles, CssBaseline, Divider } from '@material-ui/core';
 
 import { MUI_DARK_THEME, MUI_LIGHT_THEME } from './muitheme';
 import MyAppBar from './components/MyAppBar';
@@ -19,6 +19,10 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flex: 1
+  },
+  divider: {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2)
   }
 }));
 
@@ -38,6 +42,7 @@ function App() {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <ShoppingArea />
+          <Divider className={classes.divider} />
           <Cart />
         </main>
       </div>

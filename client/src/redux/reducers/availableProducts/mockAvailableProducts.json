@@ -48,14 +48,6 @@
     "color": "red"
   },
   {
-    "id": "1f7108b9-73db-400d-82f4-a27524227533",
-    "make": "Ford",
-    "model": "Taurus",
-    "year": 2005,
-    "price": "$10920.87",
-    "color": "white"
-  },
-  {
     "id": "aba34595-143e-4b75-94d6-aa60a7feabf6",
     "make": "GMC",
     "model": "Envoy",
@@ -86,14 +78,6 @@
     "year": 2007,
     "price": "$18255.91",
     "color": "orange"
-  },
-  {
-    "id": "ec6007c1-8c7f-4b0c-aced-44800e7f14a4",
-    "make": "BMW",
-    "model": "7 Series",
-    "year": 2008,
-    "price": "$19616.78",
-    "color": "white"
   },
   {
     "id": "0b486b48-d566-4cc5-9101-a1974de3e895",
@@ -158,14 +142,6 @@
     "year": 1986,
     "price": "$27829.37",
     "color": "yellow"
-  },
-  {
-    "id": "8c859646-8d5a-4996-ab3b-4615d5fc71bd",
-    "make": "Dodge",
-    "model": "Ram 2500 Club",
-    "year": 1997,
-    "price": "$19074.05",
-    "color": "white"
   },
   {
     "id": "5c286b26-ae45-4a44-af09-de14e646f007",
