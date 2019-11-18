@@ -1,13 +1,13 @@
-import { ADD_ITEM_TO_CART, SET_ITEM_QUANTITY } from '../../actionTypes';
+import { ADD_ITEM_TO_CART, SET_ITEM_COUNT, REMOVE_ITEM_FROM_CART } from '../../actionTypes';
 
 /**
  * Reducer for tracking items in cart
  */
 
 const cartContents = (state = {}, action) => {
+  console.log(state, action);
   switch (action.type) {
     case ADD_ITEM_TO_CART: {
-      console.log(state, action);
       const { newItem } = action.payload;
       return {
         ...state,
@@ -17,12 +17,21 @@ const cartContents = (state = {}, action) => {
         }
       };
     }
-    /**
-     * Remember to only allow positive integers
-     */
-    case SET_ITEM_QUANTITY: {
-      console.log(state, action);
-      return state;
+    case REMOVE_ITEM_FROM_CART: {
+      const { id } = action.payload;
+      const newState = { ...state };
+      delete newState[id];
+      return newState;
+    }
+    case SET_ITEM_COUNT: {
+      const { id, newCount } = action.payload;
+      return {
+        ...state,
+        [id]: {
+          ...state[id],
+          count: newCount
+        }
+      };
     }
     default:
       return state;

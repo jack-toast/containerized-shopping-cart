@@ -1,4 +1,4 @@
-import { ADD_ITEM_TO_CART, SET_ITEM_QUANTITY } from './actionTypes';
+import { ADD_ITEM_TO_CART, SET_ITEM_COUNT, REMOVE_ITEM_FROM_CART } from './actionTypes';
 
 export const addItemToCartAction = newItem => {
   return {
@@ -7,9 +7,16 @@ export const addItemToCartAction = newItem => {
   };
 };
 
-export const setItemQuantityAction = newQuantity => {
+export const removeItemFromCartAction = id => {
   return {
-    type: SET_ITEM_QUANTITY,
-    payload: { newQuantity }
+    type: REMOVE_ITEM_FROM_CART,
+    payload: { id }
+  };
+};
+
+export const setItemCountAction = (id, newCount) => {
+  return {
+    type: SET_ITEM_COUNT,
+    payload: { id, newCount }
   };
 };

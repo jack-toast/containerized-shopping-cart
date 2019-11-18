@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
@@ -83,6 +83,13 @@ const ProductGrid = ({ availableProducts, addItemToCartAction }) => {
     addItemToCartAction(product);
   };
 
+  useEffect(() => {
+    availableProducts.slice(0, 6).forEach(element => {
+      addItemToCartAction(element);
+    });
+    return () => {};
+  }, []);
+
   const makeGrid = availableProducts.slice(0, 6).map(product => {
     return (
       <Grid className={classes.gridItem} item key={product.id} xs={6} md={4} lg={3}>
@@ -90,14 +97,15 @@ const ProductGrid = ({ availableProducts, addItemToCartAction }) => {
           <CardContent className={classes.cardContent}>
             {getImageFromCarColor(product.color)}
             <Typography>{`${product.make} ${product.model}`}</Typography>
-            <Typography color="error" component="span">{` ${product.price}! `}</Typography>
+            <Typography color="error" component="span">{` $${product.price}! `}</Typography>
             <Typography className={classes.fakeFullPrice} component="span">
-              {`$${getFakeFullPrice(product.price)}`}
+              {`$${product.price * 2}`}
             </Typography>
           </CardContent>
           <CardActions>
             <Button
               className={classes.addToCartButton}
+              color="primary"
               onClick={() => handleAddToCartClick(product)}
             >
               Add to cart
@@ -125,7 +133,7 @@ ProductGrid.propTypes = {
       id: PropTypes.string.isRequired,
       make: PropTypes.string.isRequired,
       model: PropTypes.string.isRequired,
-      price: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
       year: PropTypes.number.isRequired
     })
   ).isRequired

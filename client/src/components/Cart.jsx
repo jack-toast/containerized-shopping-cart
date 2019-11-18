@@ -1,23 +1,88 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { makeStyles, Container, Typography, Card, CardContent, Paper } from '@material-ui/core';
+import { makeStyles, Container, Typography, Paper, Box, Button, Divider } from '@material-ui/core';
+
+import CartItem from './CartItem';
 
 const useStyles = makeStyles(theme => ({
-  root: {}
+  root: {},
+  headerContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  title: {
+    marginBottom: theme.spacing(2)
+  },
+  summaryBlock: {
+    width: '200px',
+    marginLeft: 'auto',
+    marginRight: theme.spacing(2)
+  },
+  summaryBlockRow: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginTop: theme.spacing(0.5)
+  },
+  subtotal: {
+    fontWeight: 'bold'
+  },
+  divider: {
+    marginTop: theme.spacing(0.5),
+    marginBottom: theme.spacing(1)
+  },
+  emptyCart: {
+    width: '100%',
+    fontStyle: 'italic',
+    textAlign: 'center',
+    color: theme.palette.text.disabled
+  }
 }));
 
 const Cart = ({ cartContents }) => {
   const classes = useStyles();
+
+  const getSubtotal = () => {
+    return Object.values(cartContents).length !== 0
+      ? Object.values(cartContents).reduce((acc, item) => {
+          return item.price + acc;
+        }, 0)
+      : 0;
+  };
+
   return (
     <Container maxWidth="md">
-      <Typography variant="h4">Cart</Typography>
-      {Object.keys(cartContents).map(itemKey => {
-        return (
-          <Paper key={itemKey}>
-            <Typography>{cartContents[itemKey].make}</Typography>
-          </Paper>
-        );
-      })}
+      <div className={classes.headerContainer}>
+        <Typography className={classes.title} variant="h4">
+          Shopping Cart
+        </Typography>
+      </div>
+      {Object.values(cartContents).length > 0 ? (
+        <div>
+          {Object.values(cartContents).map(item => (
+            <CartItem item={item} key={item.id} />
+          ))}
+          <div className={classes.summaryBlock}>
+            <div className={classes.summaryBlockRow}>
+              <Typography className={classes.subtotal}>Shipping </Typography>
+              <Typography className={classes.subtotal}>{`Free!`}</Typography>
+            </div>
+            <div className={classes.summaryBlockRow}>
+              <Typography className={classes.subtotal}>Subtotal </Typography>
+              <Typography className={classes.subtotal}>{`$${getSubtotal()}`}</Typography>
+            </div>
+            <Divider className={classes.divider} />
+            <Button color="primary" fullWidth variant="contained">
+              Proceed to Checkout
+            </Button>
+          </div>
+        </div>
+      ) : (
+        <Typography className={classes.emptyCart} variant="h6">
+          Your cart is empty
+        </Typography>
+      )}
     </Container>
   );
 };

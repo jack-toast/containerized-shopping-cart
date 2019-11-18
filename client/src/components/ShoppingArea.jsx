@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { makeStyles, Container, Typography, IconButton, Collapse, Box } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
+import clsx from 'clsx';
 
 import ProductGrid from './ProductGrid';
-import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
   root: {},
   header: {
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: theme.spacing(1)
+    alignItems: 'center'
   },
   expansionButton: {
     transform: 'rotate(0deg)',
@@ -21,12 +20,15 @@ const useStyles = makeStyles(theme => ({
   },
   expansionButtonOpen: {
     transform: 'rotate(180deg)'
+  },
+  collapse: {
+    marginTop: theme.spacing(1)
   }
 }));
 
 const ShoppingArea = () => {
   const classes = useStyles();
-  const [showProductGrid, setShowProductGrid] = useState(true);
+  const [showProductGrid, setShowProductGrid] = useState(false);
 
   const handleExpandButtonClicked = () => {
     setShowProductGrid(!showProductGrid);
@@ -34,10 +36,8 @@ const ShoppingArea = () => {
 
   return (
     <Container maxWidth="md">
-      <Box className={classes.header} onClick={handleExpandButtonClicked}>
-        <Typography gutterBottom variant="h4">
-          Shop til you drop
-        </Typography>
+      <Box className={clsx(classes.header)} onClick={handleExpandButtonClicked}>
+        <Typography variant="h4">Available Cars</Typography>
         <IconButton
           className={clsx(classes.expansionButton, {
             [classes.expansionButtonOpen]: showProductGrid
@@ -48,6 +48,7 @@ const ShoppingArea = () => {
         </IconButton>
       </Box>
       <Collapse in={showProductGrid}>
+        <div className={classes.collapse} />
         <ProductGrid />
       </Collapse>
     </Container>

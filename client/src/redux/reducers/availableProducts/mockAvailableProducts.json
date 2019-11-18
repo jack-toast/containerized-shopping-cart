@@ -4,7 +4,7 @@
     "make": "Kia",
     "model": "Optima",
     "year": 2004,
-    "price": "$8833.08",
+    "price": 8833.08,
     "color": "orange"
   },
   {
@@ -12,7 +12,7 @@
     "make": "Land Rover",
     "model": "Discovery Series II",
     "year": 2001,
-    "price": "$7304.14",
+    "price": 7304.14,
     "color": "yellow"
   },
   {
@@ -20,7 +20,7 @@
     "make": "Buick",
     "model": "Skylark",
     "year": 1989,
-    "price": "$27880.13",
+    "price": 27880.13,
     "color": "pink"
   },
   {
@@ -28,7 +28,7 @@
     "make": "Saturn",
     "model": "Ion",
     "year": 2007,
-    "price": "$20048.53",
+    "price": 20048.53,
     "color": "pink"
   },
   {
@@ -36,7 +36,7 @@
     "make": "Mercedes-Benz",
     "model": "R-Class",
     "year": 2011,
-    "price": "$27309.50",
+    "price": 27309.5,
     "color": "orange"
   },
   {
@@ -44,7 +44,7 @@
     "make": "Subaru",
     "model": "Impreza",
     "year": 1996,
-    "price": "$6897.14",
+    "price": 6897.14,
     "color": "red"
   },
   {
@@ -52,7 +52,7 @@
     "make": "GMC",
     "model": "Envoy",
     "year": 1999,
-    "price": "$7439.76",
+    "price": 7439.76,
     "color": "pink"
   },
   {
@@ -60,7 +60,7 @@
     "make": "Nissan",
     "model": "Sentra",
     "year": 2007,
-    "price": "$22396.32",
+    "price": 22396.32,
     "color": "green"
   },
   {
@@ -68,7 +68,7 @@
     "make": "Chevrolet",
     "model": "Cobalt SS",
     "year": 2008,
-    "price": "$6152.30",
+    "price": 6152.3,
     "color": "yellow"
   },
   {
@@ -76,7 +76,7 @@
     "make": "Toyota",
     "model": "TundraMax",
     "year": 2007,
-    "price": "$18255.91",
+    "price": 18255.91,
     "color": "orange"
   },
   {
@@ -84,7 +84,7 @@
     "make": "Hummer",
     "model": "H3T",
     "year": 2010,
-    "price": "$15007.00",
+    "price": 15007,
     "color": "black"
   },
   {
@@ -92,7 +92,7 @@
     "make": "Porsche",
     "model": "944",
     "year": 1989,
-    "price": "$28983.30",
+    "price": 28983.3,
     "color": "green"
   },
   {
@@ -100,7 +100,7 @@
     "make": "Chevrolet",
     "model": "Cavalier",
     "year": 1994,
-    "price": "$12344.09",
+    "price": 12344.09,
     "color": "red"
   },
   {
@@ -108,7 +108,7 @@
     "make": "Mitsubishi",
     "model": "Starion",
     "year": 1989,
-    "price": "$15194.89",
+    "price": 15194.89,
     "color": "pink"
   },
   {
@@ -116,7 +116,7 @@
     "make": "Audi",
     "model": "90",
     "year": 1988,
-    "price": "$18830.01",
+    "price": 18830.01,
     "color": "green"
   },
   {
@@ -124,7 +124,7 @@
     "make": "Suzuki",
     "model": "Swift",
     "year": 1996,
-    "price": "$1180.73",
+    "price": 1180.73,
     "color": "pink"
   },
   {
@@ -132,7 +132,7 @@
     "make": "Suzuki",
     "model": "Swift",
     "year": 2000,
-    "price": "$16033.31",
+    "price": 16033.31,
     "color": "pink"
   },
   {
@@ -140,7 +140,7 @@
     "make": "Maserati",
     "model": "Quattroporte",
     "year": 1986,
-    "price": "$27829.37",
+    "price": 27829.37,
     "color": "yellow"
   },
   {
@@ -148,7 +148,7 @@
     "make": "BMW",
     "model": "6 Series",
     "year": 2012,
-    "price": "$17957.72",
+    "price": 17957.72,
     "color": "blue"
   },
   {
@@ -156,7 +156,7 @@
     "make": "BMW",
     "model": "745",
     "year": 2005,
-    "price": "$29045.46",
+    "price": 29045.46,
     "color": "yellow"
   },
   {
@@ -164,7 +164,7 @@
     "make": "Lexus",
     "model": "GS",
     "year": 1995,
-    "price": "$19796.30",
+    "price": 19796.3,
     "color": "yellow"
   },
   {
@@ -172,7 +172,7 @@
     "make": "Honda",
     "model": "Pilot",
     "year": 2002,
-    "price": "$7021.41",
+    "price": 7021.41,
     "color": "red"
   }
 ]
