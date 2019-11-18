@@ -5,17 +5,15 @@ import {
   makeStyles,
   Grid,
   Card,
-  CardHeader,
-  CardMedia,
   CardContent,
-  Paper,
   Typography,
   CardActions,
   Button
 } from '@material-ui/core';
 
 import * as actions from '../redux/actions';
-import carBlue from '../images/car_blue.png';
+import { getProducts } from '../redux/selectors';
+import fetchProducts from '../redux/apiActions';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -62,7 +60,7 @@ const getFakeFullPrice = price => {
   return priceSansDollarSign.toFixed(0);
 };
 
-const ProductGrid = ({ availableProducts, addItemToCartAction }) => {
+const ProductGrid = ({ products, addItemToCartAction }) => {
   const classes = useStyles();
 
   const getImageFromCarColor = color => {
@@ -84,13 +82,14 @@ const ProductGrid = ({ availableProducts, addItemToCartAction }) => {
   };
 
   useEffect(() => {
-    availableProducts.slice(0, 6).forEach(element => {
+    products.slice(0, 6).forEach(element => {
       addItemToCartAction(element);
     });
     return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const makeGrid = availableProducts.slice(0, 6).map(product => {
+  const makeGrid = products.slice(0, 6).map(product => {
     return (
       <Grid className={classes.gridItem} item key={product.id} xs={6} md={4} lg={3}>
         <Card className={classes.card}>
@@ -127,7 +126,7 @@ const ProductGrid = ({ availableProducts, addItemToCartAction }) => {
 
 ProductGrid.propTypes = {
   addItemToCartAction: PropTypes.func.isRequired,
-  availableProducts: PropTypes.arrayOf(
+  products: PropTypes.arrayOf(
     PropTypes.shape({
       color: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
@@ -141,12 +140,13 @@ ProductGrid.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    availableProducts: state.availableProducts
+    products: getProducts(state)
   };
 };
 
 const mapDispatchToProps = {
-  addItemToCartAction: actions.addItemToCartAction
+  addItemToCartAction: actions.addItemToCartAction,
+  fetchProducts
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductGrid);

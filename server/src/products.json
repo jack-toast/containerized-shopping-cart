@@ -1,0 +1,178 @@
+[
+  {
+    "id": "bd6b5e32-9b04-4da5-bca9-98b4b28b03f9",
+    "make": "Kia",
+    "model": "Optima",
+    "year": 2004,
+    "price": 8833.08,
+    "color": "orange"
+  },
+  {
+    "id": "5443d23d-f397-42d3-83a8-3d8243474082",
+    "make": "Land Rover",
+    "model": "Discovery Series II",
+    "year": 2001,
+    "price": 7304.14,
+    "color": "yellow"
+  },
+  {
+    "id": "ccb6128c-8d9d-4f19-86e7-4f43eb8cb24a",
+    "make": "Buick",
+    "model": "Skylark",
+    "year": 1989,
+    "price": 27880.13,
+    "color": "pink"
+  },
+  {
+    "id": "6afe37fc-5f83-460f-a430-dda2e8b1fd24",
+    "make": "Saturn",
+    "model": "Ion",
+    "year": 2007,
+    "price": 20048.53,
+    "color": "pink"
+  },
+  {
+    "id": "86309d22-e43f-4197-8f51-6277f9323ee4",
+    "make": "Mercedes-Benz",
+    "model": "R-Class",
+    "year": 2011,
+    "price": 27309.5,
+    "color": "orange"
+  },
+  {
+    "id": "3f39e09b-e926-4487-88dc-5623e34e2030",
+    "make": "Subaru",
+    "model": "Impreza",
+    "year": 1996,
+    "price": 6897.14,
+    "color": "red"
+  },
+  {
+    "id": "aba34595-143e-4b75-94d6-aa60a7feabf6",
+    "make": "GMC",
+    "model": "Envoy",
+    "year": 1999,
+    "price": 7439.76,
+    "color": "pink"
+  },
+  {
+    "id": "8cbd745e-a916-467d-a4a3-0dd22e48af4f",
+    "make": "Nissan",
+    "model": "Sentra",
+    "year": 2007,
+    "price": 22396.32,
+    "color": "green"
+  },
+  {
+    "id": "515888f9-5e88-406f-8386-0296b43ca51d",
+    "make": "Chevrolet",
+    "model": "Cobalt SS",
+    "year": 2008,
+    "price": 6152.3,
+    "color": "yellow"
+  },
+  {
+    "id": "013d1f0f-8149-4c44-9651-b75920d43601",
+    "make": "Toyota",
+    "model": "TundraMax",
+    "year": 2007,
+    "price": 18255.91,
+    "color": "orange"
+  },
+  {
+    "id": "0b486b48-d566-4cc5-9101-a1974de3e895",
+    "make": "Hummer",
+    "model": "H3T",
+    "year": 2010,
+    "price": 15007,
+    "color": "black"
+  },
+  {
+    "id": "8208f1bf-5935-4cbe-8e71-22a5a64eb112",
+    "make": "Porsche",
+    "model": "944",
+    "year": 1989,
+    "price": 28983.3,
+    "color": "green"
+  },
+  {
+    "id": "686435ad-be8b-4238-9714-7952b36b7f3b",
+    "make": "Chevrolet",
+    "model": "Cavalier",
+    "year": 1994,
+    "price": 12344.09,
+    "color": "red"
+  },
+  {
+    "id": "359455ae-e54c-47da-ac54-ef501e3b1650",
+    "make": "Mitsubishi",
+    "model": "Starion",
+    "year": 1989,
+    "price": 15194.89,
+    "color": "pink"
+  },
+  {
+    "id": "7d745c14-0725-4069-b526-89b66740798e",
+    "make": "Audi",
+    "model": "90",
+    "year": 1988,
+    "price": 18830.01,
+    "color": "green"
+  },
+  {
+    "id": "8e6403fb-8330-4cb5-a937-c9e90e2fd911",
+    "make": "Suzuki",
+    "model": "Swift",
+    "year": 1996,
+    "price": 1180.73,
+    "color": "pink"
+  },
+  {
+    "id": "224caffd-16d2-40b2-9b21-c54fe253e221",
+    "make": "Suzuki",
+    "model": "Swift",
+    "year": 2000,
+    "price": 16033.31,
+    "color": "pink"
+  },
+  {
+    "id": "c52a60bb-dd60-46e7-ab73-6f1836489331",
+    "make": "Maserati",
+    "model": "Quattroporte",
+    "year": 1986,
+    "price": 27829.37,
+    "color": "yellow"
+  },
+  {
+    "id": "5c286b26-ae45-4a44-af09-de14e646f007",
+    "make": "BMW",
+    "model": "6 Series",
+    "year": 2012,
+    "price": 17957.72,
+    "color": "blue"
+  },
+  {
+    "id": "2214b93e-237d-4230-8bed-0943ada50248",
+    "make": "BMW",
+    "model": "745",
+    "year": 2005,
+    "price": 29045.46,
+    "color": "yellow"
+  },
+  {
+    "id": "8cc1c586-38ef-4375-bff5-ac5eee3e6b29",
+    "make": "Lexus",
+    "model": "GS",
+    "year": 1995,
+    "price": 19796.3,
+    "color": "yellow"
+  },
+  {
+    "id": "45199209-bb5d-4fe8-bdef-81601d839eae",
+    "make": "Honda",
+    "model": "Pilot",
+    "year": 2002,
+    "price": 7021.41,
+    "color": "red"
+  }
+]

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { makeStyles, Container, Typography, Paper, Box, Button, Divider } from '@material-ui/core';
+import { makeStyles, Container, Typography, Button, Divider } from '@material-ui/core';
 
 import CartItem from './CartItem';
 
@@ -46,10 +46,15 @@ const Cart = ({ cartContents }) => {
   const getSubtotal = () => {
     return Object.values(cartContents).length !== 0
       ? Object.values(cartContents).reduce((acc, item) => {
-          return item.price + acc;
+          return item.price * item.count + acc;
         }, 0)
       : 0;
   };
+
+  useEffect(() => {
+    console.log(cartContents);
+    return () => {};
+  });
 
   return (
     <Container maxWidth="md">

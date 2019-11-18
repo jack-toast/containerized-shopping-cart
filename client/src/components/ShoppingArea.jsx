@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 
 const ShoppingArea = () => {
   const classes = useStyles();
-  const [showProductGrid, setShowProductGrid] = useState(false);
+  const [showProductGrid, setShowProductGrid] = useState(true);
 
   const handleExpandButtonClicked = () => {
     setShowProductGrid(!showProductGrid);

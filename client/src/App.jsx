@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { MuiThemeProvider, makeStyles, CssBaseline, Divider } from '@material-ui/core';
+import axios from 'axios';
 
 import { MUI_DARK_THEME, MUI_LIGHT_THEME } from './muitheme';
 import MyAppBar from './components/MyAppBar';
 import Cart from './components/Cart';
 import ShoppingArea from './components/ShoppingArea';
+import * as Actions from './redux/actions';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,9 +30,32 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function App() {
+const App = ({
+  fetchProductsErrorAction,
+  fetchProductsPendingAction,
+  fetchProductsSuccessAction
+}) => {
   const classes = useStyles();
   const [useDarkTheme, setUseDarkTheme] = useState(false);
+
+  useEffect(() => {
+    const getCarDataFromAPI = async () => {
+      console.log('getting datar');
+      fetchProductsPendingAction();
+      try {
+        const response = await axios.get('/products');
+        console.log('datar', response.data);
+        if (response.data) {
+          fetchProductsSuccessAction(response.data);
+        }
+      } catch (error) {
+        fetchProductsErrorAction(error);
+        console.error(error);
+      }
+    };
+    getCarDataFromAPI();
+    return () => {};
+  }, []);
 
   const toggleTheme = () => {
     setUseDarkTheme(!useDarkTheme);
@@ -48,6 +75,18 @@ function App() {
       </div>
     </MuiThemeProvider>
   );
-}
+};
 
-export default App;
+App.propTypes = {
+  fetchProductsErrorAction: PropTypes.func.isRequired,
+  fetchProductsPendingAction: PropTypes.func.isRequired,
+  fetchProductsSuccessAction: PropTypes.func.isRequired
+};
+
+const mapDispatchToProps = {
+  fetchProductsPendingAction: Actions.fetchProductsPendingAction,
+  fetchProductsSuccessAction: Actions.fetchProductsSuccessAction,
+  fetchProductsErrorAction: Actions.fetchProductsErrorAction
+};
+
+export default connect(null, mapDispatchToProps)(App);

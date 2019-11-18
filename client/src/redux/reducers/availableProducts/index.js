@@ -1,11 +1,46 @@
+import {
+  FETCH_PRODUCTS_SUCCESS,
+  FETCH_PRODUCTS_ERROR,
+  FETCH_PRODUCTS_PENDING
+} from '../../actionTypes';
+
 import mockAvailableProducts from './mockAvailableProducts';
 /**
  * Using data generated on https://mockaroo.com/
  *
  */
 
-const availableProducts = (state = mockAvailableProducts, action) => {
+const initialState = {
+  pending: false,
+  products: [],
+  error: null
+};
+
+const availableProducts = (state = { ...initialState }, action) => {
+  // console.log(action);
   switch (action.type) {
+    case FETCH_PRODUCTS_PENDING: {
+      return {
+        ...state,
+        pending: true
+      };
+    }
+    case FETCH_PRODUCTS_SUCCESS: {
+      const { newProducts } = action.payload;
+      return {
+        ...state,
+        pending: false,
+        products: newProducts
+      };
+    }
+    case FETCH_PRODUCTS_ERROR: {
+      const { error } = action.payload;
+      return {
+        ...state,
+        pending: false,
+        error
+      };
+    }
     default:
       return state;
   }

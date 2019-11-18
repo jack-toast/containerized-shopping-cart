@@ -1,22 +1,15 @@
-import { isNumber } from 'util';
-
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
   makeStyles,
-  Container,
   Typography,
-  Card,
-  CardContent,
   Paper,
-  Collapse,
   IconButton,
-  Input,
   TextField,
   Divider,
   Button
 } from '@material-ui/core';
-import { Remove, Add, AssignmentReturnRounded, Delete } from '@material-ui/icons';
+import { Remove, Add } from '@material-ui/icons';
 
 import * as actions from '../redux/actions';
 
