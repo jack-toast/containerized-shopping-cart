@@ -24,5 +24,6 @@ services:
     volumes:
       - ./client/src:/usr/src/app/src
       - ./client/public:/usr/src/app/public
+      # - ./client:/usr/src/app
     links:
       - server
