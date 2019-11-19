@@ -10,6 +10,13 @@ docker-compose up --build
 
 After that, open your browser to [localhost:4000](localhost:4000)
 
+Verified that this builds properly on:
+
+- 2017 MB Pro running OSX 10.15.1 (19B88)
+- My ~10 y/o desktop running Ubuntu 18.04.3
+
+It should work on any machine with a fairly recent docker desktop or docker CE version installed. If it doesn't, please let me know and I'll try to reproduce / fix!
+
 ## Future Considerations / Improvements - Frontend
 
 - Products
