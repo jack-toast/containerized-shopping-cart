@@ -7,10 +7,10 @@ import {
   FETCH_PRODUCTS_ERROR
 } from './actionTypes';
 
-export const addItemToCartAction = newItem => {
+export const addItemToCartAction = (newItem, fromBackend) => {
   return {
     type: ADD_ITEM_TO_CART,
-    payload: { newItem }
+    payload: { newItem, fromBackend }
   };
 };
 

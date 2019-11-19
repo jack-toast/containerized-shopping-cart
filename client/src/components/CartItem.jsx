@@ -111,7 +111,6 @@ const CartItem = ({ item, setItemCountAction, removeItemFromCartAction }) => {
   };
 
   const handleRemoveItemButtonClicked = () => {
-    console.log(getRemovalMessage(item));
     removeItemFromCartAction(item.id);
   };
 

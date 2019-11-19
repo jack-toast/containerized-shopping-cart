@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { MuiThemeProvider, makeStyles, CssBaseline, Divider } from '@material-ui/core';
-import axios from 'axios';
 
 import { MUI_DARK_THEME, MUI_LIGHT_THEME } from './muitheme';
 import MyAppBar from './components/MyAppBar';
 import Cart from './components/Cart';
 import ShoppingArea from './components/ShoppingArea';
 import * as Actions from './redux/actions';
+import { getAvailableProducts, getCartContents, getAllCarts } from './utils/backendAPI';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,6 +31,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const App = ({
+  addItemToCartAction,
   fetchProductsErrorAction,
   fetchProductsPendingAction,
   fetchProductsSuccessAction
@@ -39,22 +40,23 @@ const App = ({
   const [useDarkTheme, setUseDarkTheme] = useState(false);
 
   useEffect(() => {
-    const getCarDataFromAPI = async () => {
-      console.log('getting datar');
-      fetchProductsPendingAction();
-      try {
-        const response = await axios.get('/products');
-        console.log('datar', response.data);
-        if (response.data) {
-          fetchProductsSuccessAction(response.data);
-        }
-      } catch (error) {
-        fetchProductsErrorAction(error);
-        console.error(error);
+    const getCartAndProductsFromBackend = async () => {
+      getAvailableProducts(
+        fetchProductsPendingAction,
+        fetchProductsSuccessAction,
+        fetchProductsErrorAction
+      );
+      getAllCarts();
+      const cartContents = await getCartContents();
+      if (cartContents) {
+        cartContents.forEach(cartItem => {
+          addItemToCartAction(cartItem, true);
+        });
       }
     };
-    getCarDataFromAPI();
+    getCartAndProductsFromBackend();
     return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggleTheme = () => {
@@ -78,12 +80,14 @@ const App = ({
 };
 
 App.propTypes = {
+  addItemToCartAction: PropTypes.func.isRequired,
   fetchProductsErrorAction: PropTypes.func.isRequired,
   fetchProductsPendingAction: PropTypes.func.isRequired,
   fetchProductsSuccessAction: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = {
+  addItemToCartAction: Actions.addItemToCartAction,
   fetchProductsPendingAction: Actions.fetchProductsPendingAction,
   fetchProductsSuccessAction: Actions.fetchProductsSuccessAction,
   fetchProductsErrorAction: Actions.fetchProductsErrorAction

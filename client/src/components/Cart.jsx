@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { makeStyles, Container, Typography, Button, Divider } from '@material-ui/core';
 
@@ -51,11 +52,6 @@ const Cart = ({ cartContents }) => {
       : 0;
   };
 
-  useEffect(() => {
-    console.log(cartContents);
-    return () => {};
-  });
-
   return (
     <Container maxWidth="md">
       <div className={classes.headerContainer}>
@@ -75,7 +71,7 @@ const Cart = ({ cartContents }) => {
             </div>
             <div className={classes.summaryBlockRow}>
               <Typography className={classes.subtotal}>Subtotal </Typography>
-              <Typography className={classes.subtotal}>{`$${getSubtotal()}`}</Typography>
+              <Typography className={classes.subtotal}>{`$${getSubtotal().toFixed(2)}`}</Typography>
             </div>
             <Divider className={classes.divider} />
             <Button color="primary" fullWidth variant="contained">
@@ -90,6 +86,19 @@ const Cart = ({ cartContents }) => {
       )}
     </Container>
   );
+};
+
+Cart.propTypes = {
+  cartContents: PropTypes.objectOf(
+    PropTypes.shape({
+      color: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      make: PropTypes.string.isRequired,
+      model: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      year: PropTypes.number.isRequired
+    })
+  ).isRequired
 };
 
 const mapStateToProps = state => ({

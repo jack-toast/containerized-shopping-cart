@@ -13,7 +13,6 @@ import {
 
 import * as actions from '../redux/actions';
 import { getProducts } from '../redux/selectors';
-import fetchProducts from '../redux/apiActions';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -37,11 +36,9 @@ const useStyles = makeStyles(theme => ({
   addToCartButton: {
     marginLeft: 'auto'
   },
-  card: {
-    // height: '225px',
-    // display: 'flex',
-    // flexDirection: 'column',
-    // justifyContent: 'space-between'
+  gridItem: {
+    // maxWidth: '300px',
+    minWidth: '280px'
   },
   cardContent: {
     paddingBottom: 0
@@ -53,11 +50,6 @@ const useStyles = makeStyles(theme => ({
 
 const carColorToImageUrl = color => {
   return `https://jyost-rando-images.s3.amazonaws.com/car_${color}.png`;
-};
-
-const getFakeFullPrice = price => {
-  const priceSansDollarSign = parseFloat(price.slice(1)) * 2;
-  return priceSansDollarSign.toFixed(0);
 };
 
 const ProductGrid = ({ products, addItemToCartAction }) => {
@@ -78,20 +70,12 @@ const ProductGrid = ({ products, addItemToCartAction }) => {
   };
 
   const handleAddToCartClick = product => {
-    addItemToCartAction(product);
+    addItemToCartAction(product, false);
   };
-
-  useEffect(() => {
-    products.slice(0, 6).forEach(element => {
-      addItemToCartAction(element);
-    });
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const makeGrid = products.slice(0, 6).map(product => {
     return (
-      <Grid className={classes.gridItem} item key={product.id} xs={6} md={4} lg={3}>
+      <Grid className={classes.gridItem} item key={product.id} lg={4} md={4} sm={4} xs={4}>
         <Card className={classes.card}>
           <CardContent className={classes.cardContent}>
             {getImageFromCarColor(product.color)}
@@ -145,8 +129,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  addItemToCartAction: actions.addItemToCartAction,
-  fetchProducts
+  addItemToCartAction: actions.addItemToCartAction
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductGrid);

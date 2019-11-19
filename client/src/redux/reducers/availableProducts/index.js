@@ -4,7 +4,6 @@ import {
   FETCH_PRODUCTS_PENDING
 } from '../../actionTypes';
 
-import mockAvailableProducts from './mockAvailableProducts';
 /**
  * Using data generated on https://mockaroo.com/
  *
@@ -17,7 +16,6 @@ const initialState = {
 };
 
 const availableProducts = (state = { ...initialState }, action) => {
-  // console.log(action);
   switch (action.type) {
     case FETCH_PRODUCTS_PENDING: {
       return {
