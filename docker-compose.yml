@@ -12,7 +12,7 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./server:/usr/src/app
+      - ./server/src:/usr/src/app/src
     depends_on:
       - mongo
   frontend:
