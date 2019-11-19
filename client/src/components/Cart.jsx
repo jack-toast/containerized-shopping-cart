@@ -18,7 +18,8 @@ const useStyles = makeStyles(theme => ({
   summaryBlock: {
     width: '200px',
     marginLeft: 'auto',
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
+    marginBottom: theme.spacing(6)
   },
   summaryBlockRow: {
     width: '100%',
@@ -74,7 +75,12 @@ const Cart = ({ cartContents }) => {
               <Typography className={classes.subtotal}>{`$${getSubtotal().toFixed(2)}`}</Typography>
             </div>
             <Divider className={classes.divider} />
-            <Button color="primary" fullWidth variant="contained">
+            <Button
+              color="primary"
+              fullWidth
+              variant="contained"
+              onClick={() => alert('thanks for shopping!')}
+            >
               Proceed to Checkout
             </Button>
           </div>
