@@ -31,4 +31,4 @@ After that, open your browser to [localhost:4000](localhost:4000)
     - Would reduce network consumption. Would also spend less time processing data and waiting around.
   - Add the products to the database.
 
-Anyways, please let me know what you liked and what you didn't like!
+Feedback welcome!
