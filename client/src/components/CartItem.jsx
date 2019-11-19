@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
   makeStyles,
   Typography,
@@ -58,14 +59,6 @@ const useStyles = makeStyles(theme => ({
 
 const validateCountField = fieldValue => {
   return Number.isSafeInteger(parseInt(fieldValue, 10)) && parseInt(fieldValue, 10) > 0;
-};
-
-const getItemDisplayName = item => {
-  return `${item.year} ${item.make} ${item.model}`;
-};
-
-const getRemovalMessage = item => {
-  return `removing ${item.count} ${getItemDisplayName(item)}`;
 };
 
 const CartItem = ({ item, setItemCountAction, removeItemFromCartAction }) => {
@@ -157,13 +150,23 @@ const CartItem = ({ item, setItemCountAction, removeItemFromCartAction }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  cartContents: state.cartContents
-});
+CartItem.propTypes = {
+  item: PropTypes.shape({
+    color: PropTypes.string.isRequired,
+    count: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
+    make: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    year: PropTypes.number.isRequired
+  }).isRequired,
+  removeItemFromCartAction: PropTypes.func.isRequired,
+  setItemCountAction: PropTypes.func.isRequired
+};
 
 const mapDispatchToProps = {
   setItemCountAction: actions.setItemCountAction,
   removeItemFromCartAction: actions.removeItemFromCartAction
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartItem);
+export default connect(null, mapDispatchToProps)(CartItem);

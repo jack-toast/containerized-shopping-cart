@@ -26,10 +26,10 @@ app.get('/products', (req, res) => {
 
 app.get('/cart', async (req, res) => {
   const userID = getUserIDFromReq(req);
-  const carts = await Cart.findOne({ userID });
-  console.log('GET /carts', carts);
-  if (carts) {
-    res.json(carts.contents);
+  const cart = await Cart.findOne({ userID });
+  console.log('GET /cart, cart: ', cart);
+  if (cart) {
+    res.json(cart.contents);
   } else {
     res.json(null);
   }
@@ -37,7 +37,7 @@ app.get('/cart', async (req, res) => {
 
 app.get('/carts', async (req, res) => {
   const carts = await Cart.find();
-  console.log('GET /carts', carts.length);
+  console.log('GET /carts, carts.length: ', carts.length);
   if (carts) {
     res.json(carts);
   } else {

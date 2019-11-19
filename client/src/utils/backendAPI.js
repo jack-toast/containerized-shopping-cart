@@ -21,7 +21,6 @@ export const getAvailableProducts = async (
 export const getCartContents = async () => {
   try {
     const response = await axios.get('/cart');
-    // console.log('GET /cart', response.data);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -30,8 +29,7 @@ export const getCartContents = async () => {
 
 export const getAllCarts = async () => {
   try {
-    const response = await axios.get('/carts');
-    // console.log('GET /carts', response.data);
+    await axios.get('/carts');
   } catch (error) {
     console.error(error);
   }
@@ -39,8 +37,7 @@ export const getAllCarts = async () => {
 
 export const setCartContents = async newCartContents => {
   try {
-    const response = await axios.put('/cart', newCartContents);
-    // console.log('PUT /cart', response.data);
+    await axios.put('/cart', newCartContents);
   } catch (error) {
     console.error(error);
   }
@@ -48,8 +45,7 @@ export const setCartContents = async newCartContents => {
 
 export const deleteAllCarts = async () => {
   try {
-    const response = await axios.delete('/carts');
-    // console.log('DELETE /carts', response.data);
+    await axios.delete('/carts');
   } catch (error) {
     console.error(error);
   }
