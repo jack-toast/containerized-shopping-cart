@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const uuidv5 = require('uuid/v5');
+const cors = require('cors');
 const Cart = require('./Cart.model');
 
 const connectToMongoDB = require('./connection');
@@ -19,6 +20,7 @@ const userIDMiddleware = (req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(userIDMiddleware);
+app.use(cors);
 
 app.get('/', async (req, res) => {
   res.json({ message: 'Hello World!!!!' });
@@ -47,7 +49,7 @@ app.get('/carts', async (req, res) => {
   if (carts) {
     res.json(carts);
   } else {
-    res.json(null);
+    res.json([]);
   }
 });
 
