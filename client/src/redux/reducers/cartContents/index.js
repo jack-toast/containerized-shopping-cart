@@ -6,15 +6,20 @@ import { setCartContents } from '../../../utils/backendAPI';
  */
 
 const cartContents = (state = {}, action) => {
+  console.log(action);
   const reducerCore = () => {
     switch (action.type) {
       case ADD_ITEM_TO_CART: {
         const { newItem } = action.payload;
+        let newCount = newItem.count ? newItem.count : 1;
+        if (!newItem.count) {
+          newCount = state[newItem.id] ? state[newItem.id].count + 1 : 1;
+        }
         return {
           ...state,
           [newItem.id]: {
             ...newItem,
-            count: state[newItem.id] ? state[newItem.id].count + 1 : 1
+            count: newCount
           }
         };
       }
