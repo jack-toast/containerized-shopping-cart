@@ -32,17 +32,16 @@ It should work on any machine with a fairly recent docker desktop or docker CE v
 ## Future Considerations / Improvements - Backend
 
 - Put all async/awaits in try-catch blocks
-- Also in DELETE /carts you do a `deleteMany` for carts with a given userId but in PUT /cart you do an EXISTS and a REPLACEONE. so in one place you're assuming only one cart per userId, but in another place assuming multiple carts per userId.
-- in GET /carts I would return an empty array rather than null, generally your frontend code will be happier with an empty array
+- Also in DELETE /carts I do a `deleteMany` for carts with a given userId but in PUT /cart I do an EXISTS and a REPLACEONE. so in one place I'm assuming only one cart per userId, but in another place assuming multiple carts per userId.
 - use .lean() when calling findOne or findMany if returning the POJO without doing any other mongo actions on the cursor
 - console.log() and console.error() are synchronous. Use something like winston (https://www.npmjs.com/package/winston) instead
 - Use gzip compression. Networking takes longer than compression and decompression!
 - Improve error handling.
-  - send an email when process.on('uncaughtException') is hit
+  - send an email when process.on('uncaughtException') is hit in production.
 - Handle JSON.parse exceptions
 - Create a function getUserIDFromReqMMiddleware = (req, res, next) => That does the exact same logic, but this saves the userId to req.
   - So req.userId = uuidv5(req.headers['user-agent'], uuidNamespace);
-  - Then in the router you would do app,use(getUserIDFromReqMMiddleware)
+  - Then in the router you would do app.use(getUserIDFromReqMMiddleware)
   - Then in each request you can just use req.userId since it gets set for every request
 
 * Express / Mongoose
